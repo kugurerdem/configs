@@ -1,0 +1,1 @@
+/home/ugur/.config/suckless/st/config.h

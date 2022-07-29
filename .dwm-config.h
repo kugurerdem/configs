@@ -1,0 +1,1 @@
+/home/ugur/.config/suckless/dwm/config.h
