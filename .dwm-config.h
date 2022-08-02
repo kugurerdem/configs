@@ -96,11 +96,13 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	//{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ 0, XF86XK_AudioMute,		spawn,		SHCMD("pamixer -t; pkill -RTMIN+10 dwmblocks") },
-	{ 0, XF86XK_AudioRaiseVolume, 	spawn,		SHCMD("pamixer --allow-boost -i 5; pkill -RTMIN+10 dwmblocks") },
-	{ 0, XF86XK_AudioLowerVolume, 	spawn,		SHCMD("pamixer --allow-boost -d 5; pkill -RTMIN+10 dwmblocks") },
-	{ 0, XF86XK_MonBrightnessUp,	spawn,		{.v = (const char*[]){ "xbacklight", "-inc", "15", NULL } } },
-	{ 0, XF86XK_MonBrightnessDown,	spawn,		{.v = (const char*[]){ "xbacklight", "-dec", "15", NULL } } },
+    { 0,                            XK_Print,	                spawn,		SHCMD("scrot -e 'mv $f ~/Pictures/Screenshots/'") },
+    { ShiftMask,                    XK_Print,	                spawn,		SHCMD("scrot -s -e 'mv $f ~/Pictures/Screenshots/'") },
+	{ 0,                            XF86XK_AudioMute,		    spawn,		SHCMD("pamixer -t; pkill -RTMIN+10 dwmblocks") },
+	{ 0,                            XF86XK_AudioRaiseVolume, 	spawn,		SHCMD("pamixer --allow-boost -i 5; pkill -RTMIN+10 dwmblocks") },
+	{ 0,                            XF86XK_AudioLowerVolume, 	spawn,		SHCMD("pamixer --allow-boost -d 5; pkill -RTMIN+10 dwmblocks") },
+	{ 0,                            XF86XK_MonBrightnessUp,	    spawn,		{.v = (const char*[]){ "xbacklight", "-inc", "15", NULL } } },
+	{ 0,                            XF86XK_MonBrightnessDown,	spawn,		{.v = (const char*[]){ "xbacklight", "-dec", "15", NULL } } },
 };
 
 /* button definitions */
