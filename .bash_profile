@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-set -o vi
+#set -o vi
 alias sudo="sudo "
 
 alias info="info --vi-keys"
