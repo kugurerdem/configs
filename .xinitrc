@@ -10,5 +10,6 @@ xrdb -merge ~/.Xresources
 dwmblocks &
 
 setxkbmap -option "caps:swapescape"
+setxkbmap -model pc104 -layout us,tr -option grp:win_space_toggle
 
 exec dwm
