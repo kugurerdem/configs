@@ -9,12 +9,15 @@ set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set smartindent
-set ignorecase
+set list
+set listchars=trail:@
+" set ignorecase
 set number                  " add line numbers
 set relativenumber
 set clipboard=unnamedplus   " using system clipboard
 set encoding=UTF-8
 set textwidth=80
+set noswapfile
 
 call plug#begin()
 
@@ -54,3 +57,4 @@ nm <leader>n :noh<CR>
 
 au filetype javascript nm <C-n> :!node %<CR>
 au filetype javascript nm <C-l> :!npx eslint %<CR>
+au filetype sh nm <C-l> :!shellcheck %<CR>
