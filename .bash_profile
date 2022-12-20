@@ -14,6 +14,8 @@ alias nt="nohup $TERM >/dev/null 2>&1 &"
 alias e='nvim `fzf`'
 alias vw="nvim -c 'norm \ww'"
 
+alias diary="$EDITOR $HOME/Documents/diary/$(date +%G).md"
+
 alias gi=git
 alias news=newsboat
 
