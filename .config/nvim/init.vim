@@ -40,7 +40,7 @@ function OpenMarkdownPreview (url)
 execute "silent ! brave --new-window " . a:url
 endfunction
 
-let g:mkdp_browser = 'brave'
+let g:mkdp_browser = 'firefox'
 let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
@@ -58,3 +58,4 @@ nm <leader>n :noh<CR>
 au filetype javascript nm <C-n> :!node %<CR>
 au filetype javascript nm <C-l> :!npx eslint %<CR>
 au filetype sh nm <C-l> :!shellcheck %<CR>
+au filetype clojure nm <C-n> :!clojure %<CR>
