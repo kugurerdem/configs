@@ -1,5 +1,9 @@
 #!/bin/sh
 
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/pipewire-media-session &
+
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 xrdb -merge ~/.Xresources
