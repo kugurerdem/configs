@@ -25,6 +25,8 @@ gtk2
 gtk3
 pinentry
 python3
+ueberzug
+ranger
 ```
 
 If you put the dependencies above in a file `dependencies.txt`, you can then
@@ -45,3 +47,10 @@ Don't forget to run the command `chmod +s /usr/bin/light` after installing
 
 Also do not forget to add yourself in the `video` user group.
 
+## DVTM
+
+Mouse wheels does not work properly in default DVTM but a person @ccrusius seem
+to have patched this issue in this
+[PR](https://github.com/martanne/dvtm/pull/104). I have included the patch in
+.config/sources/dvtm folder, all you need to this is to apply this patch after
+cloning the official dvtm repository.
