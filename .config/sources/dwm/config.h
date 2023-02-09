@@ -61,7 +61,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *passmenucmd[] = { "passmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -102,8 +102,8 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMute,		    spawn,		SHCMD("pamixer -t; pkill -RTMIN+10 dwmblocks") },
 	{ 0,                            XF86XK_AudioRaiseVolume, 	spawn,		SHCMD("pamixer --allow-boost -i 5; pkill -RTMIN+10 dwmblocks") },
 	{ 0,                            XF86XK_AudioLowerVolume, 	spawn,		SHCMD("pamixer --allow-boost -d 5; pkill -RTMIN+10 dwmblocks") },
-	{ 0,                            XF86XK_MonBrightnessUp,	    spawn,		{.v = (const char*[]){ "xbacklight", "-inc", "15", NULL } } },
-	{ 0,                            XF86XK_MonBrightnessDown,	spawn,		{.v = (const char*[]){ "xbacklight", "-dec", "15", NULL } } },
+	{ 0,                            XF86XK_MonBrightnessUp,	    spawn,		{.v = (const char*[]){ "light", "-A", "10", NULL } } },
+	{ 0,                            XF86XK_MonBrightnessDown,	spawn,		{.v = (const char*[]){ "light", "-U", "10", NULL } } },
 };
 
 /* button definitions */
