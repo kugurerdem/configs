@@ -20,6 +20,8 @@ pipewire-pulse
 pipewire-media-session
 pipewire-alsa
 pipewire-jack
+bluez
+bluez-utils
 pavucontrol
 gtk2
 gtk3
@@ -27,6 +29,8 @@ pinentry
 python3
 ueberzug
 ranger
+unzip
+dunst
 ```
 
 If you put the dependencies above in a file `dependencies.txt`, you can then
@@ -54,3 +58,11 @@ to have patched this issue in this
 [PR](https://github.com/martanne/dvtm/pull/104). I have included the patch in
 .config/sources/dvtm folder, all you need to this is to apply this patch after
 cloning the official dvtm repository.
+
+## Sound (External Microphone)
+
+External microphones were not recognized on my Lenovo S145-API computer. To fix
+this, I have openned the file (create if not exists) in
+``/etc/modprobe.d/alsa-base.conf`` and put ``options snd-hda-intel
+model=headset-mic,dell-headset-multi`` inside. This will fix the unrecognized
+external microphone issue.
