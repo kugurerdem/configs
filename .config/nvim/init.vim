@@ -28,6 +28,7 @@ Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'vim-airline/vim-airline'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'github/copilot.vim'
 
 call plug#end()
 
