@@ -57,5 +57,8 @@ nm <leader>n :noh<CR>
 
 au filetype javascript nm <C-n> :!node %<CR>
 au filetype javascript nm <C-l> :!npx eslint %<CR>
+au filetype haskell nm <C-n> :!runhaskell %<CR>
+au filetype haskell nm <C-l> :!hlint %<CR>
 au filetype sh nm <C-l> :!shellcheck %<CR>
 au filetype clojure nm <C-n> :!clojure %<CR>
+
