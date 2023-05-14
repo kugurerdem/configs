@@ -31,6 +31,7 @@ ueberzug
 ranger
 unzip
 dunst
+picom
 ```
 
 If you put the dependencies above in a file `dependencies.txt`, you can then

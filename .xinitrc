@@ -9,6 +9,11 @@
 xrdb -merge ~/.Xresources
 
 dwmblocks &
+dunst &
+picom &
+wallpaper-manager &
+
+feh --bg-scale $(ls | shuf -n 1)
 
 # Keyboard settings
 setxkbmap -option "caps:swapescape"
