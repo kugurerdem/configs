@@ -1,7 +1,4 @@
 #!/usr/bin/bash
 
-while true; do
-    cd $HOME/Pictures/Wallpapers || exit 1
-    feh --bg-scale $(ls | shuf -n 1)
-    sleep 600
-done
+cd $HOME/Pictures/Wallpapers || exit 1
+feh --bg-scale $(ls | shuf -n 1)
