@@ -16,7 +16,7 @@ set number                  " add line numbers
 set relativenumber
 set clipboard=unnamedplus   " using system clipboard
 set encoding=UTF-8
-set textwidth=80
+" set textwidth=80
 set noswapfile
 
 call plug#begin()
@@ -33,7 +33,9 @@ Plug 'github/copilot.vim'
 call plug#end()
 
 " awesome-vim-colorschemes config
-colorscheme jellybeans
+colorscheme minimalist
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
 
 " MarkdownPreview Config
 function OpenMarkdownPreview (url)
