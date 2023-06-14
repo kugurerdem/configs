@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+rfkill unblock all
+bluetoothctl devices \
+    | cut -d' ' -f2 \
+    | xargs -n 1 bluetoothctl connect
