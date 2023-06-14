@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+# Get the first argument
+name=$1
+
+# Copy the template to the clipboard
+cat $HOME/templates/$name | xsel -b
