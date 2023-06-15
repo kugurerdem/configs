@@ -32,13 +32,16 @@ ranger
 unzip
 dunst
 picom
+pass
+pass-otp
+zbar
 ```
 
 If you put the dependencies above in a file `dependencies.txt`, you can then
 run:
 
 ```
-cat dependencies.txt | xargs sudo pacman -S
+cat dependencies.txt | xargs -n 1 sudo pacman -S
 ```
 
 # Reminders to myself
