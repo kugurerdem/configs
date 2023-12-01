@@ -19,6 +19,9 @@ set encoding=UTF-8
 " set textwidth=80
 set noswapfile
 
+set foldmethod=indent
+set foldlevelstart=99
+
 call plug#begin()
 
 "Theme and view
@@ -36,6 +39,9 @@ call plug#end()
 colorscheme minimalist
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 " MarkdownPreview Config
 function OpenMarkdownPreview (url)
@@ -64,3 +70,4 @@ au filetype haskell nm <C-l> :!hlint %<CR>
 au filetype sh nm <C-l> :!shellcheck %<CR>
 au filetype clojure nm <C-n> :!clojure %<CR>
 
+au filetype markdown nm <C-n> :!pandoc -s % -o %:r.pdf<CR>
