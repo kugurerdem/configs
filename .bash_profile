@@ -14,13 +14,14 @@ alias nt="nohup $TERM >/dev/null 2>&1 &"
 alias e='nvim `fzf`'
 alias vw="nvim -c 'norm \ww'"
 
-alias diary="$EDITOR $HOME/Documents/diary/$(date +%G).md"
+alias diary="$EDITOR $HOME/Documents/my/diary/$(date +%G).md"
 
 alias gi=git
 alias news=newsboat
 
 export VISUAL=nvim;
 export EDITOR=nvim;
+export PAGER=less
 
 if [ -d "$HOME/bin" ] ;
 then
