@@ -39,6 +39,7 @@ call plug#end()
 colorscheme minimalist
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
+highlight ColorColumn ctermbg=238
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
