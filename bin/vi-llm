@@ -1,0 +1,31 @@
+#!/usr/bin/bash
+
+prompt=$(vipe)
+
+echo ">$prompt"
+echo "$prompt" | llm "$@"
+
+while true; do
+    raw_logs=$(llm logs list -c)
+
+    parsed_logs=$(echo -e "$raw_logs \n\n## Insert your message below:\n\n")
+
+    edited_logs=$(echo "$parsed_logs" | vipe)
+
+    prompt=$(diff <(echo "$edited_logs") <(echo "$parsed_logs")\
+        | grep "<"\
+        | sed 's/< //'
+    )
+
+    if [[ $? -ne 0 ]]; then
+        echo "Processing error"
+        exit 1
+    fi
+
+    if [[ -z "$prompt" ]]; then
+        exit 0
+    fi
+
+    echo ">$prompt"
+    echo "$prompt" | llm -c
+done
