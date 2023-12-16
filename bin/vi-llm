@@ -1,6 +1,28 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+
+readonly NO_CHAT_FLAG_ERROR_CODE=1
+readonly NONZERO_VIPE_ERROR_CODE=2
+readonly PROCESSING_ERROR_CODE=3
+
+function exit_with_error {
+    >&2 echo "$1"
+    exit $2
+}
+
+function check_vipe_exit_status {
+    if [[ $? -ne 0 ]]; then
+        >&2 echo "vipe exited non-zero, aborting"
+        exit $NONZERO_VIPE_ERROR_CODE
+    fi
+}
+
+if [[ "$@" == *"chat"* ]]; then
+    >&2 echo "You cannot use chat flag in vi-llm"
+    exit $NO_CHAT_FLAG_ERROR_CODE
+fi
 
 prompt=$(vipe)
+check_vipe_exit_status
 
 echo ">$prompt"
 echo "$prompt" | llm "$@"
@@ -11,6 +33,7 @@ while true; do
     parsed_logs=$(echo -e "$raw_logs \n\n## Insert your message below:\n\n")
 
     edited_logs=$(echo "$parsed_logs" | vipe)
+    check_vipe_exit_status
 
     prompt=$(diff <(echo "$edited_logs") <(echo "$parsed_logs")\
         | grep "<"\
@@ -18,8 +41,8 @@ while true; do
     )
 
     if [[ $? -ne 0 ]]; then
-        echo "Processing error"
-        exit 1
+        >&2 echo "Processing error"
+        exit $PROCESSING_ERROR_CODE
     fi
 
     if [[ -z "$prompt" ]]; then
