@@ -30,10 +30,20 @@ Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
 " Plugins
 Plug 'tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'vim-airline/vim-airline'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'github/copilot.vim'
 
 call plug#end()
+
+
+let g:copilot_filetypes = {
+            \ '*': v:false,
+            \ 'javascript': v:true,
+            \ 'python': v:true,
+            \ 'sql': v:true,
+            \ 'sh': v:true,
+            \ 'haskell': v:true,
+            \ 'gitcommit': v:true,
+            \ }
 
 " awesome-vim-colorschemes config
 colorscheme minimalist
@@ -43,21 +53,6 @@ highlight ColorColumn ctermbg=238
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-
-" MarkdownPreview Config
-function OpenMarkdownPreview (url)
-execute "silent ! brave --new-window " . a:url
-endfunction
-
-let g:mkdp_browser = 'firefox'
-let g:mkdp_browserfunc = 'OpenMarkdownPreview'
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
-
-" VimWiki Config
-" Vim Wiki
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext':'.md'}]
-
 
 " HOTKEYS
 nm <leader>c :se cc=80<CR>
