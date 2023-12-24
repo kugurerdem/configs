@@ -11,8 +11,16 @@ alias sudo="sudo "
 alias info="info --vi-keys"
 alias ls="ls -pF"
 alias nt="nohup $TERM >/dev/null 2>&1 &"
-alias e='nvim `fzf`'
 alias vw="nvim -c 'norm \ww'"
+
+function edit_file_opened_by_fzf() {
+    local file
+    file=$(fzf)
+    if [[ -n $file ]]; then
+        nvim "$file"
+    fi
+}
+alias e=edit_file_opened_by_fzf
 
 alias diary="$EDITOR $HOME/Documents/my/diary/$(date +%G).md"
 
