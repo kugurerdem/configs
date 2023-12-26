@@ -70,3 +70,9 @@ this, I have openned the file (create if not exists) in
 ``/etc/modprobe.d/alsa-base.conf`` and put ``options snd-hda-intel
 model=headset-mic,dell-headset-multi`` inside. This will fix the unrecognized
 external microphone issue.
+
+## fzf
+
+To utilize the fzf terminal's auto completion and keybindings features, you
+need to build it yourself instead of downloading it through pacman or aur.
+
