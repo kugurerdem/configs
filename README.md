@@ -2,6 +2,14 @@ This repository consists my personal configuration files for my arch linux
 setups. Here, I share some of the notes to myself which might be helpfull
 during the installation process.
 
+# How to Setup
+
+``git init`` on your home directory
+
+``git remote add origin git@github.com:kugurerdem/dotfiles.git``
+
+``git pull --recurse-submodules``
+
 # Packages to Install With Pacman and AUR
 
 The list of dependencies that might be helpfull to install during the
@@ -11,22 +19,10 @@ Do not forget to reboot after installing the dependencies mentioned above.
 
 # Programs to Install Manually
 
-Other programs that I often use like ``dwm``, ``dvtm``, ``yay``, ``dwmblocks``
-can be installed manually through cloning their git repositories and following
-their installation manuals.
+Other source code for the programs that I often use can be found under
+``.gitsources`` folder.
 
-## fzf
-
-To utilize the fzf terminal's auto completion and keybindings features, you
-need to build it yourself instead of downloading it through pacman or aur.
-
-## DVTM
-
-Mouse wheels does not work properly in default DVTM but a person @ccrusius seem
-to have patched this issue in this
-[PR](https://github.com/martanne/dvtm/pull/104). I have included the patch in
-.config/sources/dvtm folder, all you need to this is to apply this patch after
-cloning the official dvtm repository.
+# Additional Notes
 
 ## Brightness
 
