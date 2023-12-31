@@ -1,3 +1,15 @@
 [submodule ".gitsources/dwm"]
 	path = .gitsources/dwm
 	url = git@github.com:kugurerdem/dwm.git
+[submodule ".gitsources/fzf"]
+	path = .gitsources/fzf
+	url = git@github.com:junegunn/fzf.git
+[submodule ".gitsources/dvtm"]
+	path = .gitsources/dvtm
+	url = git@github.com:kugurerdem/dvtm.git
+[submodule ".gitsources/dwmblocks"]
+	path = .gitsources/dwmblocks
+	url = git@github.com:kugurerdem/dwmblocks.git
+[submodule ".gitsources/yay"]
+	path = .gitsources/yay
+	url = https://aur.archlinux.org/yay.git
