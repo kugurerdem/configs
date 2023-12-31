@@ -1,0 +1,3 @@
+[submodule ".gitsources/dwm"]
+	path = .gitsources/dwm
+	url = git@github.com:kugurerdem/dwm.git
