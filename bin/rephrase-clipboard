@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+tmpfile=$(mktemp)
+xsel -b | llm -t rephrase > $tmpfile
+cat $tmpfile | xsel -b
+notify-send  -t 1000 'The text in the clipboard has been rephrased'
