@@ -9,6 +9,7 @@ bind -m vi-insert 'Control-l: clear-screen'
 alias sudo="sudo "
 
 alias info="info --vi-keys"
+alias stl="systemctl"
 alias ls="ls -pF"
 
 function edit_file_opened_by_fzf() {
