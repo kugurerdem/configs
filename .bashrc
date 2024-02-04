@@ -1,4 +1,6 @@
 #!/usr/bin/bash
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
 
 alias sudo="sudo "
 
