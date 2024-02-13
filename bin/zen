@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
-for site in $@;
-do
-    grep -q "$site" /etc/hosts \
-        || echo "::1 $site" | tee -a /etc/hosts
-done
+sudo block-site whatsapp.com web.whatsapp.com\
+    linkedin.com www.linkedin.com\
+    facebook.com www.facebook.com\
+    instagram.com www.instagram.com\
+    twitter.com www.twitter.com
