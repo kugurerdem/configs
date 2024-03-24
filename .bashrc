@@ -4,16 +4,11 @@ bind -m vi-insert 'Control-l: clear-screen'
 
 alias sudo="sudo "
 
-alias info="info --vi-keys"
-alias stl="systemctl"
 alias ls="ls -pF"
 
 alias e=edit_file_opened_by_fzf
 
 alias diary="$EDITOR $HOME/Documents/my/diary/$(date +%G).md"
-
-alias gi=git
-alias news=newsboat
 
 function edit_file_opened_by_fzf() {
     local file
