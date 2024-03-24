@@ -4,4 +4,12 @@
 name=$1
 
 # Copy the template to the clipboard
-cat $HOME/templates/$name | xsel -b
+templates=$HOME/templates
+file=$(ls $templates | dmenu)
+
+if [ -z $file ]; then
+    exit 1
+fi
+
+cat $templates/$file | xsel -b
+notify-send "Copied contents of the file **$file** to the clipboard"
