@@ -16,7 +16,8 @@ echo "Opening $VISUAL"
 $VISUAL . &&
     echo "Pushing to remote repository" &&
     {
-        git add ./*.md;
-        git cm -m "Update $(date)";
+        git add -u;
+        git add ./*.md
+        git cm -m "Update Note $(git diff --name-only --cached)";
         git push;
     }
