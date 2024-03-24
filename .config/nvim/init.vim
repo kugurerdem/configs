@@ -22,6 +22,12 @@ set noswapfile
 set foldmethod=indent
 set foldlevelstart=99
 
+" set wrap
+" set textcolumn=80
+" set linebreak
+" nnoremap j gj
+" nnoremap k gk
+
 call plug#begin()
 
 "Theme and view
@@ -43,6 +49,13 @@ let g:copilot_filetypes = {
             \ 'sh': v:true,
             \ 'haskell': v:true,
             \ 'gitcommit': v:true,
+            \ 'vim': v:true,
+            \ 'css': v:true,
+            \ 'html': v:true,
+            \ 'c': v:true,
+            \ 'cpp': v:true,
+            \ 'h': v:true,
+            \ 'go': v:true,
             \ }
 
 " awesome-vim-colorschemes config
@@ -65,5 +78,7 @@ au filetype haskell nm <C-n> :!runhaskell %<CR>
 au filetype haskell nm <C-l> :!hlint %<CR>
 au filetype sh nm <C-l> :!shellcheck %<CR>
 au filetype clojure nm <C-n> :!clojure %<CR>
+au filetype go nm <C-n> :!go run %<CR>
+au filetype go nm <C-l> :!golangci-lint run %<CR>
 
 au filetype markdown nm <C-n> :!pandoc -s % -o %:r.pdf<CR>
