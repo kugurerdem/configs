@@ -1,30 +1,40 @@
 #!/usr/bin/env bash
 
-readonly NO_CHAT_FLAG_ERROR_CODE=1
-readonly NONZERO_VIPE_ERROR_CODE=2
-readonly PROCESSING_ERROR_CODE=3
+readonly INVALID_USAGE_ERROR_CODE=1
+readonly NONZERO_EDITOR_ERROR_CODE=2
 
-function exit_with_error {
-    >&2 echo "$1"
-    exit $2
+if [ "$EDITOR" != "vim" ] && [ "$EDITOR" != "nvim" ]; then
+    echo "Environment variable EDITOR is not set to vim or nvim." >&2
+    exit $INVALID_USAGE_ERROR_CODE
+fi
+
+if [[ "$@" == *"chat"* ]]; then
+    >&2 echo "You cannot use chat flag in vi-llm as vi-llm already used for chat."
+    exit $INVALID_USAGE_ERROR_CODE
+fi
+
+function edit_with_editor() {
+    local tmpfile
+    tmpfile=$(mktemp)
+    read -t 0 && cat > "$tmpfile"
+
+    $EDITOR + "$tmpfile" < /dev/tty > /dev/tty 2>&1 &&
+    cat "$tmpfile" &&
+    rm -f "$tmpfile"
 }
 
-function check_vipe_exit_status {
+function check_editor_exit_code() {
     if [[ $? -ne 0 ]]; then
-        >&2 echo "vipe exited non-zero, aborting"
-        exit $NONZERO_VIPE_ERROR_CODE
+        >&2 echo "editor exited non-zero, aborting"
+        exit $NONZERO_EDITOR_ERROR_CODE
     fi
 }
 
-if [[ "$@" == *"chat"* ]]; then
-    >&2 echo "You cannot use chat flag in vi-llm"
-    exit $NO_CHAT_FLAG_ERROR_CODE
-fi
+prompt=$(edit_with_editor)
+check_editor_exit_code
 
-prompt=$(vipe)
-check_vipe_exit_status
-
-echo ">$prompt"
+echo "Prompt: $prompt"
+echo -n "Response: "
 echo "$prompt" | llm "$@"
 
 while true; do
@@ -32,23 +42,20 @@ while true; do
 
     parsed_logs=$(echo -e "$raw_logs \n\n## Insert your message below:\n\n")
 
-    edited_logs=$(echo "$parsed_logs" | vipe)
-    check_vipe_exit_status
+    edited_logs=$(echo "$parsed_logs" | edit_with_editor)
+    check_editor_exit_code
 
     prompt=$(diff <(echo "$edited_logs") <(echo "$parsed_logs")\
         | grep "<"\
         | sed 's/< //'
     )
 
-    if [[ $? -ne 0 ]]; then
-        >&2 echo "Processing error"
-        exit $PROCESSING_ERROR_CODE
-    fi
-
     if [[ -z "$prompt" ]]; then
-        exit 0
+        echo "Prompt is empty, aborting"
+        exit $INVALID_USAGE_ERROR_CODE
     fi
 
-    echo ">$prompt"
+    echo "Prompt: $prompt"
+    echo -n "Response: "
     echo "$prompt" | llm -c
 done
