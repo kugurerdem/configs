@@ -23,8 +23,12 @@ zip # Zip files
 unzip # Unzip files
 libreoffice-fresh # Who needs Office programs now?
 light # I use this for handling screen brightness
+pamixer # for handling pulse-audio from cli
+
 pass # CLI based Password Manager
 pass-otp # Use pass for OTP
+zbar # decode bar codes from image files, can be used with pass-top
+
 gtk2 # Required for passmenu to work correctly
 entr # A tool that I mostly use when developing stuff
 moreutils # COOL Linux utilities like vipe, vidir, etc.
@@ -38,6 +42,12 @@ newsboat # RSS Client
 signal-desktop # Signal Messaging App
 telegram-desktop # Telegram Messaging App
 slock # Tool for locking the screen
+
+udisks2 # For a more ergonomic way to mount removable media
+rsync # for syncing files between directories
+
+android-tools # have adb in it
+pandoc-cli # general markup converter
 ```
 
 # AUR Packages
