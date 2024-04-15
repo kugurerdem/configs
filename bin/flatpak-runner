@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+flatpak list \
+    | awk '{for(i=1;i<=NF;i++){ if($i ~ /\S+\.\S*/){print $i; break;} } }' \
+    | dmenu \
+    | xargs flatpak run
