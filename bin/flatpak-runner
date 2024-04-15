@@ -2,5 +2,5 @@
 
 flatpak list \
     | awk '{for(i=1;i<=NF;i++){ if($i ~ /\S+\.\S*/){print $i; break;} } }' \
-    | dmenu \
+    | dmenu -i \
     | xargs flatpak run
