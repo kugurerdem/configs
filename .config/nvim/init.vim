@@ -56,6 +56,7 @@ let g:copilot_filetypes = {
             \ 'cpp': v:true,
             \ 'h': v:true,
             \ 'go': v:true,
+            \ 'rust': v:true,
             \ }
 
 " awesome-vim-colorschemes config
@@ -80,5 +81,7 @@ au filetype sh nm <C-l> :!shellcheck %<CR>
 au filetype clojure nm <C-n> :!clojure %<CR>
 au filetype go nm <C-n> :!go run %<CR>
 au filetype go nm <C-l> :!golangci-lint run %<CR>
+au filetype rust nm <C-n> :!cargo run %<CR>
+au filetype rust nm <C-l> :!cargo check<CR>
 
 au filetype markdown nm <C-n> :!pandoc -s % -o %:r.pdf<CR>
